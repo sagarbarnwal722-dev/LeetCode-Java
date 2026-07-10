@@ -28,11 +28,5 @@ class Solution {
         {
             nums1[i]=temp[i];
         }
-        for(i=0;i<nums1.length;i++)
-        {
-            System.out.print(nums1[i]+",");
-        }
-        System.out.println();
-       
-    }
+            }
 }
