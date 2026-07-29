@@ -1,13 +1,13 @@
-class Solution {
-    public int findDuplicate(int[] nums) {
-      Arrays.sort(nums);
-      for(int i=0;i<nums.length-1;i++)
-      {
-        if(nums[i]==nums[i+1])
-        {
-            return nums[i];
+class Solution
+{
+
+
+public int findDuplicate(int[] nums) {
+        boolean[] count = new boolean[nums.length];
+        for (int num : nums) {
+            if (count[num]) return num;
+            count[num] = true;
         }
-      }
-      return -1;  
+        return 0;
     }
 }
