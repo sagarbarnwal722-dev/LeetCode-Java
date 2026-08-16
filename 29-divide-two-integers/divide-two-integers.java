@@ -1,7 +1,7 @@
 class Solution {
     public int divide(int dividend, int divisor) {
 
-        // Handle overflow case
+        
         if (dividend == Integer.MIN_VALUE && divisor == -1) {
             return Integer.MAX_VALUE;
         }
@@ -25,7 +25,6 @@ class Solution {
             count = count + multiple;
         }
 
-        // Determine sign
         if ((dividend < 0) != (divisor < 0)) {
             count = -count;
         }
