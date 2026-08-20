@@ -4,7 +4,7 @@ class Solution {
        ArrayList<Integer>arr2=new ArrayList<>();
        arr1.add(nums[0]);
        arr2.add(nums[1]);
-       int i=2;
+       int i=2,j=0,k=0;
        while(i<nums.length)
        {
         if(arr1.get(arr1.size()-1)>arr2.get(arr2.size()-1))
@@ -16,26 +16,17 @@ class Solution {
         }
         i++;
         }
-        // while(j<arr1.size())
-        // {
-        //     nums[j]=arr1.get(j);
-        //     j++;
-        // }
-        // while(j<nums.length && k<arr2.size())
-        // {
-        //     nums[j]=arr2.get(k);
-        //     j++;
-        //     k++;
-        // }
-        int index=0;
-        for(int x:arr1)
+        while(j<arr1.size())
         {
-            nums[index++]=x;
-        } 
-        for(int x:arr2)
-        {
-            nums[index++]=x;
+            nums[j]=arr1.get(j);
+            j++;
         }
+        while(j<nums.length && k<arr2.size())
+        {
+            nums[j]=arr2.get(k);
+            j++;
+            k++;
+        } 
         return nums;
     }
 }
