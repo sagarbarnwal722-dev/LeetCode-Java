@@ -1,48 +1,49 @@
 class Solution {
-
     public String multiply(String num1, String num2) {
-
-        if(num1.equals("0") || num2.equals("0"))
-        {
+        if (num1.equals("0") || num2.equals("0"))
             return "0";
-        }
+        if (num1.equals("1"))
+            return num2;
 
-        int n = num1.length();
-        int m = num2.length();
+        if (num2.equals("1"))
+            return num1;
 
-        int result[] = new int[n + m];
+        int l1 = num1.length();
+        int l2 = num2.length();
+        
 
-        for(int i = n - 1; i >= 0; i--)
+        int[] res = new int[l1 + l2];
+
+        for (int i = 0; i < l1 ; i++)
         {
-            for(int j = m - 1; j >= 0; j--)
+            int n1 = num1.charAt(i) - '0';
+            for (int j = 0; j < l2; j++)
             {
-                int digit1 = num1.charAt(i) - '0';
-                int digit2 = num2.charAt(j) - '0';  
+                int n2 = num2.charAt(j) - '0';
+                int n12 = n1 * n2;
 
-                int product = digit1 * digit2;
-
-                int pos1 = i + j;
-                int pos2 = i + j + 1;
-
-                int sum = product + result[pos2];
-
-                result[pos2] = sum % 10;
-                result[pos1] += sum / 10;
+                res[i + j + 1] += n12;
             }
         }
 
-        String ans = "";
-
-        for(int x : result)
+        for (int i = res.length - 1; i > 0; i--) 
         {
-            if(ans.length() == 0 && x == 0)
-            {
-                continue;
-            }
-
-            ans += x;
+            res[i - 1] += res[i] / 10;
+            res[i] = res[i] % 10;
         }
 
-        return ans;
+        int start = 0;
+
+        while (res[start] == 0 && start < res.length)
+        {
+            start++;
+        }
+
+        char[] sum = new char[l1 + l2 - start];
+
+        for (int i = start; i < res.length; i++) 
+            sum[i - start] = (char) (res[i] + '0');
+        
+        return new String(sum);
     }
 }
