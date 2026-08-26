@@ -14,7 +14,8 @@ class Solution {
        {
         return "";
        }
-       for(int i=0;i+k-1<ones.size();i++)
+       int limit=ones.size()-k;
+       for(int i=0;i<=limit;i++)
        {
         int start=ones.get(i);
         int end=ones.get(i+k-1);
