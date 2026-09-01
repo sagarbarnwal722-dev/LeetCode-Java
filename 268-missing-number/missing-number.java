@@ -1,25 +1,11 @@
 class Solution {
     public int missingNumber(int[] nums) {
+        int xor = nums.length;
 
-        int len = nums.length;
-
-        for (int i = 0; i <= len; i++) {
-
-            boolean found = false;
-
-            for (int j = 0; j < nums.length; j++) {
-
-                if (i == nums[j]) {
-                    found = true;
-                    break;
-                }
-            }
-
-            if (found == false) {
-                return i;
-            }
+        for (int i = 0; i < nums.length; i++) {
+            xor = xor ^ i ^ nums[i];
         }
 
-        return -1;
+        return xor;
     }
 }
