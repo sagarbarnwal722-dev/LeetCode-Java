@@ -22,7 +22,7 @@ class Solution {
 
         for(int i = 1; i <= r; i++)
         {
-            res = res * (r - i + 1);
+            res = res * (r - i+1);
             res = res / i;
 
             ans.add((int)res);
