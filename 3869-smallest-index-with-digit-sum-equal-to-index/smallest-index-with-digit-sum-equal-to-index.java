@@ -1,17 +1,18 @@
 class Solution {
     public int smallestIndex(int[] nums) {
-        int ans=0;
-      for(int i=0;i<nums.length;i++)
+      int ans=Integer.MAX_VALUE,i;
+      for(i=0;i<nums.length;i++)
       {
         if(i == digitsum(nums[i]))
         {
-            // ans=Math.min(ans,i);
-            // break;
-      return i;
-
+            ans=Math.min(ans,i);
         }
       }
-      return -1;
+      if(ans==Integer.MAX_VALUE)
+      {
+        return -1;
+      }
+      return ans;
     }
     public int digitsum(int n)
     {
