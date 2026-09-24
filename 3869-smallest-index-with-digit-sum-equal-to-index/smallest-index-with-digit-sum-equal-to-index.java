@@ -1,0 +1,27 @@
+class Solution {
+    public int smallestIndex(int[] nums) {
+        int ans=0;
+      for(int i=0;i<nums.length;i++)
+      {
+        if(i == digitsum(nums[i]))
+        {
+            // ans=Math.min(ans,i);
+            // break;
+      return i;
+
+        }
+      }
+      return -1;
+    }
+    public int digitsum(int n)
+    {
+        int sum=0;
+        while(n>0)
+        {
+            int rem=n%10;
+            sum+=rem;
+            n=n/10;
+        }
+        return sum;
+    }
+}
